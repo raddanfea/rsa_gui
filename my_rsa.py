@@ -18,18 +18,6 @@ def imod(a, n):
     return c // a  # floor osztás
 
 
-# Prím teszt
-def is_prime(num):
-    if num == 2:
-        return True
-    if num < 2 or num % 2 == 0:
-        return False
-    for n in range(3, int(num ** 0.5) + 2, 2):
-        if num % n == 0:
-            return False
-    return True
-
-
 # Euler's Totient Phi (realtiv primek szama)
 def num_of_rel_primes(szam):
     i = 0
@@ -45,11 +33,6 @@ def generate_keypair():
     while p == q:
         p = primes[random.randrange(len(primes))]
         q = primes[random.randrange(len(primes))]
-
-    if not (is_prime(p) and is_prime(q)):
-        raise ValueError('Non-primes given')
-    elif p == q:
-        raise ValueError('Primes cannot be equal')
 
     n = p * q
 
